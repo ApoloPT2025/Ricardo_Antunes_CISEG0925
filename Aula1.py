@@ -1,0 +1,1 @@
+print("Aula 1, em 1 de Setembro de 2025")
