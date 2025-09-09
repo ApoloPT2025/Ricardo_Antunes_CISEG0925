@@ -14,6 +14,8 @@ lst=[]
 maior=0
 menor=0
 ch=0
+primeira=0
+esp=0
 
 #Validações
 lst.append(input("What name?\n"))
@@ -21,14 +23,17 @@ lst.append(input("What name?\n"))
 while i<len(lst[0]):
     ch=ord(lst[0][i])
     if ch>=65 and ch<=90:#Verifica se é maiuscula
+        if i==0:#Primeira letra
+            primeira=1
+        if esp>0 and maior==0:
+            primeiro=1
         maior+=1
-    if ch>=97 and ch<=122:
-        menor+=1
-    if ch==32:
+    if ch==32 and maior==1:
+        primeira=0
         maior=0
+        esp+=1
     i+=1
-
-if maior==1 and menor>0:
+if primeira==1 and maior==1:
     print("Nome válido")
     input()
 else:

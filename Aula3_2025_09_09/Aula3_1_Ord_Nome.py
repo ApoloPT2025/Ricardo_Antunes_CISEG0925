@@ -22,30 +22,46 @@ Depois de ordenares, a lista deve ficar assim:
     "Ana Clara",
     "Ana Paula",
 ]
+
+Codigo ASCII letras maiusculas do 65 a 90
+Codigo ASCII letras minusculas do 97 a 122
 '''
 lst=["Pedro Pereira","Ana Beatriz","Ana Clara","Carlos Silva","Beatriz Souza","Ana Paula","Pedro Andrade"]
 i=0
 j=0
 ordenada=[]
 letra=0
-maior=0
+inc=0
+temp=""
 
-while i<len(lst):
-    while j<3:#Loop ate 3ra letra
-        letra=ord(lst[i][j])
-        #print(f"Letra={lst[i][j]},asci={letra}")
-        #input()
-        if letra==65 or letra==97:
-            print("Nome=",lst[i])
-            print("Letra=",letra)
-            input()
-        if letra==32:
-            break
-        j+=1
-    #print(i)
-    i+=1
-    j=0
-
+#Ordenar o primeiro nome
+for inc in range (65,91):
+    print("Inc=",inc)
+    input()
+    while i<len(lst):
+        #while j<3:#Loop ate 3ra letra
+        letra=ord(lst[i][j])#Armazena o numero em ASCII
+        print(f"Nome={lst[i][j]} e ASCII={letra}")
+            if inc==letra:
+                ordenada.append(lst[i])
+                print(ordenada)
+                input()
+        '''
+        for inc in range(65,91): #Ciclo para maiusculas
+            #if letra==65 or letra==97:
+            if letra==inc:
+                print(inc)
+                temp=lst[i]
+                ordenada.append(lst[i])
+                print(f"Adicionado {lst[i]} a lista ordenada")
+                input()
+            if letra==32:
+                break
+        #    j+=1
+        '''
+        i+=1
+        j=0
+print(ordenada)
 
 
 
