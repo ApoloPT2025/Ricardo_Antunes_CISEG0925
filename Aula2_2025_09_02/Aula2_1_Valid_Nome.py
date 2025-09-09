@@ -12,10 +12,10 @@ Caso contrário, deve exibir:
 i=0
 lst=[]
 maior=0
-menor=0
 ch=0
 primeira=0
 esp=0
+valido=0
 
 #Validações
 lst.append(input("What name?\n"))
@@ -26,7 +26,7 @@ while i<len(lst[0]):
         if i==0:#Primeira letra
             primeira=1
         if esp>0 and maior==0:
-            primeiro=1
+            primeira=1
         maior+=1
     if ch==32 and maior==1:
         primeira=0
