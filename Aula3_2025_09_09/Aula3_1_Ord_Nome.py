@@ -26,42 +26,62 @@ Depois de ordenares, a lista deve ficar assim:
 Codigo ASCII letras maiusculas do 65 a 90
 Codigo ASCII letras minusculas do 97 a 122
 '''
-lst=["Pedro Pereira","Ana Beatriz","Ana Clara","Carlos Silva","Beatriz Souza","Ana Paula","Pedro Andrade"]
+import time
+lst=["Pedro Pereira","Ana Beatriz","Ana Clara","Carlos Silva","Beatriz Souza","Ana Paula","Pedro Andrade","Artur Coxo","Andreia Silva"]
 i=0
 j=0
+k=0
 ordenada=[]
 letra=0
 inc=0
-temp=""
 
 #Ordenar o primeiro nome
-for inc in range (65,91):
-    print("Inc=",inc)
-    input()
-    while i<len(lst):
-        #while j<3:#Loop ate 3ra letra
-        letra=ord(lst[i][j])#Armazena o numero em ASCII
-        print(f"Nome={lst[i][j]} e ASCII={letra}")
-            if inc==letra:
-                ordenada.append(lst[i])
+while j<3:
+    if j==0:#Primeira letra
+        for inc in range (65,91):#Letras maiusculas
+            while i<len(lst):
+                letra=ord(lst[i][j])#Armazena o numero em ASCII
+                if inc==letra:
+                    ordenada.append(lst[i])
+                i+=1
+            i=0
+    else:#Restantes letras
+        while i<len(lst):
+            if i==0:
+                ordenada.append(lst[0])#Vai guardar o primeiro nome da lista
                 print(ordenada)
-                input()
-        '''
-        for inc in range(65,91): #Ciclo para maiusculas
-            #if letra==65 or letra==97:
-            if letra==inc:
-                print(inc)
-                temp=lst[i]
-                ordenada.append(lst[i])
-                print(f"Adicionado {lst[i]} a lista ordenada")
-                input()
-            if letra==32:
-                break
-        #    j+=1
-        '''
-        i+=1
-        j=0
-print(ordenada)
+                #input()
+            else:
+                prim_letra=ord(lst[i][j])
+                prim_letra_anterior=ord(lst[i][j-1])
+                letra=ord(lst[i][j])
+                if len(ordenada)==1:#Se a lista so tiver um registo
+                    letra_anterior=ord(ordenada[0][j])
+                else:#Se tiver mais registos
+                    letra_anterior=ord(ordenada[i-1][j])
+                if letra_anterior>letra:
+                    print(f"Letra anterior {letra_anterior} > a letra atual {letra}")
+                    ordenada.insert(i-1,lst[i])
+                    print(ordenada)
+                    input()
+                if letra_anterior<letra:
+                    print(f"Letra anterior {letra_anterior} < a letra atual {letra}")
+                    ordenada.append(lst[i])
+                    print(ordenada)
+                    input()
+                if letra_anterior==letra:
+                    print(f"Letra anterior {letra_anterior} = a letra atual {letra}")
+                    ordenada.append(lst[i])
+                    print(ordenada)
+                    input()
+            i+=1
+        i=0
+    lst=ordenada
+    ordenada=[]
+    print("Lista=",lst)
+    print("Ordenada=",ordenada)
+    j+=1
+
 
 
 
