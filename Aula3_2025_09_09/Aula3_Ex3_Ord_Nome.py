@@ -28,12 +28,12 @@ Codigo ASCII letras minusculas do 97 a 122
 '''
 import time
 lst=["Pedro Pereira","Ana Beatriz","Ana Clara","Carlos Silva","Beatriz Souza","Ana Paula","Pedro Andrade","Artur Coxo","Andreia Silva"]
-i=0
-j=0
-k=0
-ordenada=[]
-letra=0
-inc=0
+i=0 #Variavel para while
+j=0 #Variavel para while
+ordenada=[] #Variavel para armazenar temporariamente a lista
+letra=0 #Variavel para armazenar o numero ASCII da letra
+inc=0 #Variavel para for
+letra_maior=0
 
 #Ordenar o primeiro nome
 while j<3:
@@ -49,31 +49,46 @@ while j<3:
         while i<len(lst):
             if i==0:
                 ordenada.append(lst[0])#Vai guardar o primeiro nome da lista
-                print(ordenada)
+                #print("Adicionado primeiro registo",ordenada)
+                #time.sleep(1)
                 #input()
             else:
-                prim_letra=ord(lst[i][j])
-                prim_letra_anterior=ord(lst[i][j-1])
+                prim_letra=ord(lst[i][j-1])#ASCII primeira letra actual
+                prim_letra_anterior=ord(ordenada[i-1][j-1])#ASCII primeira letra anterior
+                print(f"Primeira letra={chr(prim_letra)}={prim_letra}, Primeira letra anterior={chr(prim_letra_anterior)}={prim_letra_anterior}")
+                #input()
+                if prim_letra_anterior<prim_letra: #Verifica se a letra anterior é superior a letra actual
+                    letra_maior=1
+                    print("Proxima primeira letra maior que a anterior")
+                    print("Letra maior=",letra_maior)
+                    #time.sleep(1)
+                else:
+                    letra_maior=0
+                    print("Proxima primeira letra menor ou igual que a anterior")
+                    print("Letra maior=",letra_maior)
+                    #time.sleep(1)
                 letra=ord(lst[i][j])
                 if len(ordenada)==1:#Se a lista so tiver um registo
                     letra_anterior=ord(ordenada[0][j])
                 else:#Se tiver mais registos
                     letra_anterior=ord(ordenada[i-1][j])
-                if letra_anterior>letra:
+                if letra_anterior>letra and letra_maior==0:#Se letra anterior for superior e primeira letra for igual ou superior ao proxima
                     print(f"Letra anterior {letra_anterior} > a letra atual {letra}")
                     ordenada.insert(i-1,lst[i])
-                    print(ordenada)
-                    input()
+                    letra_maior=0
                 if letra_anterior<letra:
                     print(f"Letra anterior {letra_anterior} < a letra atual {letra}")
                     ordenada.append(lst[i])
-                    print(ordenada)
-                    input()
                 if letra_anterior==letra:
                     print(f"Letra anterior {letra_anterior} = a letra atual {letra}")
                     ordenada.append(lst[i])
-                    print(ordenada)
-                    input()
+                if letra_maior==1:
+                    print(f"Letra anterior {letra_anterior} > a letra atual {letra}")
+                    ordenada.append(lst[i])
+                    letra_maior=0
+                print(ordenada)
+                #time.sleep(5)
+                input()
             i+=1
         i=0
     lst=ordenada
