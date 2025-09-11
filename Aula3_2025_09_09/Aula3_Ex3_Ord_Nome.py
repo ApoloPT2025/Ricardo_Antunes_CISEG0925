@@ -36,6 +36,27 @@ inc=0 #Variavel para for
 letra_maior=0
 
 #Ordenar o primeiro nome
+for inc in range (65,91):#Letras maiusculas
+    while i<len(lst):
+        letra=ord(lst[i][0])#Armazena o numero em ASCII
+        if inc==letra:
+            ordenada.append(lst[i])
+        i+=1
+    i=0
+lst=ordenada
+ordenada=[]
+print("Lista=",lst)
+print("Ordenada=",ordenada)
+input()
+
+while i<len(lst):
+    letra=ord(lst[i][0])#Armazena o numero em ASCII
+    if inc==letra:
+        ordenada.append(lst[i])
+    i+=1
+i=0
+
+'''
 while j<3:
     if j==0:#Primeira letra
         for inc in range (65,91):#Letras maiusculas
@@ -45,7 +66,7 @@ while j<3:
                     ordenada.append(lst[i])
                 i+=1
             i=0
-    else:#Restantes letras
+    if j==1:#Segunda letra
         while i<len(lst):
             if i==0:
                 ordenada.append(lst[0])#Vai guardar o primeiro nome da lista
@@ -55,17 +76,17 @@ while j<3:
             else:
                 prim_letra=ord(lst[i][j-1])#ASCII primeira letra actual
                 prim_letra_anterior=ord(ordenada[i-1][j-1])#ASCII primeira letra anterior
-                print(f"Primeira letra={chr(prim_letra)}={prim_letra}, Primeira letra anterior={chr(prim_letra_anterior)}={prim_letra_anterior}")
+                #print(f"Primeira letra={chr(prim_letra)}={prim_letra}, Primeira letra anterior={chr(prim_letra_anterior)}={prim_letra_anterior}")
                 #input()
                 if prim_letra_anterior<prim_letra: #Verifica se a letra anterior é superior a letra actual
                     letra_maior=1
-                    print("Proxima primeira letra maior que a anterior")
-                    print("Letra maior=",letra_maior)
+                    #print("Proxima primeira letra maior que a anterior")
+                    #print("Letra maior=",letra_maior)
                     #time.sleep(1)
                 else:
                     letra_maior=0
-                    print("Proxima primeira letra menor ou igual que a anterior")
-                    print("Letra maior=",letra_maior)
+                    #print("Proxima primeira letra menor ou igual que a anterior")
+                    #print("Letra maior=",letra_maior)
                     #time.sleep(1)
                 letra=ord(lst[i][j])
                 if len(ordenada)==1:#Se a lista so tiver um registo
@@ -73,33 +94,30 @@ while j<3:
                 else:#Se tiver mais registos
                     letra_anterior=ord(ordenada[i-1][j])
                 if letra_anterior>letra and letra_maior==0:#Se letra anterior for superior e primeira letra for igual ou superior ao proxima
-                    print(f"Letra anterior {letra_anterior} > a letra atual {letra}")
+                    #print(f"Letra anterior {letra_anterior} > a letra atual {letra}")
                     ordenada.insert(i-1,lst[i])
-                    letra_maior=0
-                if letra_anterior<letra:
-                    print(f"Letra anterior {letra_anterior} < a letra atual {letra}")
+                if letra_anterior<letra and letra_maior==0:
+                    #print(f"Letra anterior {letra_anterior} < a letra atual {letra}")
                     ordenada.append(lst[i])
-                if letra_anterior==letra:
-                    print(f"Letra anterior {letra_anterior} = a letra atual {letra}")
+                if letra_anterior==letra and letra_maior==0:
+                    #print(f"Letra anterior {letra_anterior} = a letra atual {letra}")
                     ordenada.append(lst[i])
                 if letra_maior==1:
-                    print(f"Letra anterior {letra_anterior} > a letra atual {letra}")
+                    #print(f"Letra anterior {letra_anterior} > a letra atual {letra}")
                     ordenada.append(lst[i])
                     letra_maior=0
                 print(ordenada)
+                #print(f"I={i}, J={j}")
                 #time.sleep(5)
-                input()
+                #input()
             i+=1
         i=0
+    else:
+        print("Terceira letra")
+        input()
     lst=ordenada
     ordenada=[]
     print("Lista=",lst)
     print("Ordenada=",ordenada)
     j+=1
-
-
-
-
-
-
-
+'''
