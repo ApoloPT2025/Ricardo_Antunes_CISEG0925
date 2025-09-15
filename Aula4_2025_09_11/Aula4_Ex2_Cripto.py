@@ -32,6 +32,7 @@ lst_frase=[]
 lst_key=[]
 encript=[]
 temp=[]
+desencript=[]
 chave=0
 key=0
 i=0
@@ -54,12 +55,20 @@ while True:
         case "2":#Descriptografar
             os.system("cls")
             temp=input("Qual a chave para desincriptar?\n")
-            
-            #if chave==key:
-                
-            for i in range (len(lst_key)):#Percorre o ciclo para encript
-                key=key+ord(lst_key[i])
-            input()
+            if temp==lst_key:
+                os.system("cls")
+                print("Chave aceite!")
+                time.sleep(3)
+                for i in range (len(lst_frase)):#Percorre o ciclo para encript
+                    print(f"{i}/{len(lst_frase)}")
+                    print("Key=",key)
+                    print("Encript=",encript[i])
+                    #desencript.append(chr(key-encript[i]))
+                    input()
+            else:
+                os.system("cls")
+                print("Chave incorreta!")
+                time.sleep(3)
         case "3":#Listar
             os.system("cls")
             print("Frase=",lst_frase)
