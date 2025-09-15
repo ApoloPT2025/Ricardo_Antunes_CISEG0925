@@ -58,11 +58,13 @@ while True:
             if temp==lst_key:
                 os.system("cls")
                 print("Chave aceite!")
-                time.sleep(3)
+                #time.sleep(3)
                 for i in range (len(lst_frase)):#Percorre o ciclo para encript
-                    print(f"{i}/{len(lst_frase)}")
-                    print("Key=",key)
-                    print("Encript=",encript[i])
+                    print(f"{i}/{len(lst_frase)}")#Mostra a posição em que se encontra o loop
+                    print("Key=",key)#Mostra a chave
+                    print("Encript=",encript[i])#Mostra a letra encriptada
+                    print("Encript=",chr(key-encript[i]))
+                    #print("Desincriptado=",chr(key-encript[i]))
                     #desencript.append(chr(key-encript[i]))
                     input()
             else:
