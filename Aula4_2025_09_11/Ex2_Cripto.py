@@ -31,9 +31,8 @@ import os
 lst_frase=[]
 lst_key=[]
 encript=[]
-temp=[]
-desencript=[]
-chave=0
+chave=[]
+desencript=""
 key=0
 i=0
 j=0
@@ -50,23 +49,19 @@ while True:
             lst_key=input("Qual a chave?\n")
             for i in range (len(lst_key)):#Percorre o ciclo para a key
                 key=key+ord(lst_key[i])
-            for j in range (len(lst_frase)):#Percorre o ciclo para encriptar a frade
+            for j in range (len(lst_frase)):#Percorre o ciclo para encriptar a frase
                 encript.append(chr(key+(ord(lst_frase[j]))))
         case "2":#Descriptografar
             os.system("cls")
-            temp=input("Qual a chave para desincriptar?\n")
-            if temp==lst_key:
+            chave=input("Qual a chave para desincriptar?\n")
+            if chave==lst_key:
+                print("Chave aceite!\nAguarde 2s sff")
+                time.sleep(2)
                 os.system("cls")
-                print("Chave aceite!")
-                #time.sleep(3)
                 for i in range (len(lst_frase)):#Percorre o ciclo para encript
-                    print(f"{i}/{len(lst_frase)}")#Mostra a posição em que se encontra o loop
-                    print("Key=",key)#Mostra a chave
-                    print("Encript=",encript[i])#Mostra a letra encriptada
-                    print("Encript=",chr(key-encript[i]))
-                    #print("Desincriptado=",chr(key-encript[i]))
-                    #desencript.append(chr(key-encript[i]))
-                    input()
+                    desencript=desencript+chr(ord(encript[i])-key)
+                print(desencript)
+                input()
             else:
                 os.system("cls")
                 print("Chave incorreta!")
@@ -87,13 +82,3 @@ while True:
             os.system("cls")
             print("Opção Errada!!")
             time.sleep(2)
-
-
-
-
-
-
-
-
-
-
