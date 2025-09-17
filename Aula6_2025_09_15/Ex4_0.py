@@ -4,34 +4,23 @@ Exercicio 4 Ordena as Letras de Z-A de em uma lista com uma unica string.
 
 Codigo ASCII letras maiusculas do 65 a 90
 Codigo ASCII letras minusculas do 97 a 122
+
 '''
 
-lista=["EU GOSTO E DO VERAO"]
-lst=""
+lista=[" EU GOSTO E DO VERAO"]
+lst=[]
 i=0
 j=0
-adiciona=0
+temp=""
 
-
+#for i in range(90,32,-1): #Ciclo para percorrer as letras de Z a A e espaço
 for i in range(90,64,-1): #Ciclo para percorrer as letras de Z a A
-    print(i)
     j=0
-    while j<len(lista):
-        print(f"J={j}, I={i}, Letra={chr(i)}")
-        #print(lista[0][j])
-        #print(ord(lista[0][j]))
-        #input()
-        if i==ord(lista[0][j]):
-            print("Adicionado=",lista[0][j])
-            adiciona+=1
-            lst=lst+chr(i)
-            print(lst)
-            input()
+    while j<len(lista[0]): #Ciclo para percorrer cada letra na lista
+        if i==ord(lista[0][j]): #Se encontrar letra, adiciona a uma nova lista
+            temp=temp+chr(i)
         j+=1
-print(lst)
+lst.insert(0,temp)
+print("A lista=",lista)
+print("Ordenada de Z-A=",lst)
 input()
-
-
-
-
-
